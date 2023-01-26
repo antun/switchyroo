@@ -1,0 +1,43 @@
+body{
+  width:630px;
+  font-family: sans-serif;
+}
+
+a, span {
+  padding: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+
+.mappingDetails, .customerDetails {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #eaeaea;
+}
+
+.gtSign {
+  text-align: center;
+}
+
+#patternField {
+  width: 100%;
+  font-size: 12px;
+}
+
+.rule {
+  margin-bottom: 8px;
+}
+
+.ruleSubstitution {
+  text-indent: 36px;
+}
+
+.ruleMatched {
+  border: #666666;
+  border-style: dotted;
+}

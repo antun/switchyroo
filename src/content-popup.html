@@ -1,0 +1,66 @@
+<!doctype html>
+<html ng-app="implementationswitcher" ng-csp>
+  <head>
+    <title>Switchyroo</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="./lib/angular.js"></script>
+    <script type="text/javascript" src="./lib/underscore.js"></script>
+    <script type="text/javascript" src="./lib/jquery.min.js"></script>
+    <script type="text/javascript" src="./RulesController.js"></script>
+
+  </head>
+  <body>
+    <div id="container" ng-controller="RulesController">
+      <h1>Switchyroo</h1>
+      <input type="checkbox" class="active" name="active" ng-model="settings.isEnabled"  />
+      <label>Enabled</label>
+      <p ng-if="!settings.isEnabled" id="not-enabled">
+      Switching is not enabled.
+      </p>
+      <div ng-if="settings.isEnabled" id="enabled">
+        <div>
+          <label for="patternField">Pattern:</label>
+          <input type="text" id="patternField" ng-model="settings.pattern" />
+          <div>
+            <div>Use: {protocol}, {shortName}, {fileType}, {filename}, {customerId}</div>
+          </div>
+          <div class="mappingDetails">
+            <div><strong>Matched Rules</strong></div>
+            <div ng-repeat="rule in matchedRules">
+              <div ng-if="rule.action.type === 'redirect'">
+                <div><span class="ruleId">{{rule.id}})</span> {{rule.condition.regexFilter}}</div>
+                <div class="ruleSubstitution">&#x27A1;{{rule.action.redirect.regexSubstitution}}</div>
+              </div>
+              <div ng-if="rule.action.type === 'modifyHeaders'">
+                <div><span class="ruleId">{{rule.id}})</span>{{rule.action.responseHeaders[0].operation}} {{rule.action.responseHeaders[0].header}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="customerDetails">
+            <div><strong>Customer JSON</strong></div>
+            <pre ng-bind="customerJson"></pre>
+          </div>
+        </div>
+        <input type="checkbox" class="active" name="active" ng-model="settings.stripContentSecurityPolicy"  />
+        <label>Strip content-security-policy header</label>
+      </div>
+
+      <input type="checkbox" class="active" name="active" ng-model="settings.showCurrentRules"  />
+      <label>Show Current Rules</label>
+
+      <div ng-if="settings.showCurrentRules">
+        <h2>Current Rules (<span>{{rules.length}}</span>)</h2>
+        <ul>
+          <li class="rule" ng-repeat="rule in rules">
+            <div ng-if="rule.action.type === 'redirect'" ng-class="matchedRuleIds.includes(rule.id) ? 'ruleMatched' : ''">
+              <div><span class="ruleId">{{rule.id}})</span> {{rule.condition.regexFilter}}</div>
+              <div class="ruleSubstitution">&#x27A1;{{rule.action.redirect.regexSubstitution}}</div>
+            </div>
+            <div ng-if="rule.action.type === 'modifyHeaders'">
+              <div><span class="ruleId">{{rule.id}})</span>{{rule.action.responseHeaders[0].operation}} {{rule.action.responseHeaders[0].header}}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </body>
+</html>

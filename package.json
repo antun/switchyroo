@@ -1,0 +1,31 @@
+{
+  "name": "Switchyroo",
+  "version": "0.0.17",
+  "author": {
+    "name": "Antun Karlovac <antun@antunkarlovac.com>",
+    "url": "http://antunkarlovac.com/"
+  },
+  "scripts": {
+    "watch": "grunt watch",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:fluidretail/imp-implementationswitcher.git"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-eslint": "^10.1.0",
+    "grunt": "^1.5.3",
+    "grunt-bump": "^0.8.0",
+    "grunt-cli": "^1.4.0",
+    "grunt-contrib-compress": "^1.4.1",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^22.0.0",
+    "grunt-replace": "^2.0.2",
+    "grunt-run": "^0.8.1",
+    "jest": "^29.3.1"
+  },
+  "dependencies": {}
+}
