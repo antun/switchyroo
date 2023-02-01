@@ -15,14 +15,6 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     filename: '<%= pkg.name %>-<%= pkg.customer.name %>',
     // Task configuration.
-    eslint: {
-      options: {
-        eslintrc: "./.eslintrc"
-      },
-      lib_test: {
-        src: ['src/**/*.js', '!src/lib/**.js']
-      }
-    },
     watch: {
       scripts: {
         files: ['src/**/*.*', 'tests/**/*.*'],
@@ -42,29 +34,42 @@ module.exports = function(grunt) {
           'run',
           'test'
         ]
+      },
+      vite: {
+        cmd: 'vite',
+        args: [
+          'build'
+        ]
       }
 
     },
     copy: {
       main: {
-        files: [{
-          expand: true,
-          cwd: 'src/',
-          src: ['**'],
-          dest: 'dist/implementationswitcher'
-        }
+        files: [
+          {
+            expand: true,
+            cwd: 'src/',
+            src: ['**', '!vue/**'],
+            dest: 'dist/switchyroo'
+          },
+          {
+            expand: true,
+            cwd: 'src/vue/',
+            src: ['index.html', 'styles.css'],
+            dest: 'dist/switchyroo/popup'
+          }
         ]
       }
     },
     compress: {
       main: {
         options: {
-          archive: 'dist/implementationswitcher.zip'
+          archive: 'dist/switchyroo.zip'
         },
         files: [
           {
             expand: true,
-            cwd: 'dist/implementationswitcher/',
+            cwd: 'dist/switchyroo/',
             src: ['**'],
             dest: ''
           },
@@ -82,7 +87,7 @@ module.exports = function(grunt) {
           ]
         },
         files: [
-          {src: ['dist/implementationswitcher/manifest.json'], dest: 'dist/implementationswitcher/manifest.json'}
+          {src: ['dist/switchyroo/manifest.json'], dest: 'dist/switchyroo/manifest.json'}
         ]
       }
     },
@@ -95,7 +100,6 @@ module.exports = function(grunt) {
     gitinfo: {}
   });
 
-  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compress');
@@ -105,9 +109,9 @@ module.exports = function(grunt) {
 
 
   // Default task.
-  grunt.registerTask('default', ['eslint', 'copy:main', 'replace:version']);
+  grunt.registerTask('default', ['run:vite', 'copy:main', 'replace:version']);
   grunt.registerTask('build', ['default', 'compress']);
-  grunt.registerTask('publish', ['eslint', 'bump', 'build']);
+  grunt.registerTask('publish', ['bump', 'build']);
   grunt.registerTask('test', ['run:npm_test_jest']);
 
 };

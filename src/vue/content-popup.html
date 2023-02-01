@@ -1,17 +1,16 @@
 <!doctype html>
-<html ng-app="implementationswitcher" ng-csp>
+<html>
   <head>
     <title>Switchyroo</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script type="text/javascript" src="./lib/angular.js"></script>
-    <script type="text/javascript" src="./lib/underscore.js"></script>
-    <script type="text/javascript" src="./lib/jquery.min.js"></script>
-    <script type="text/javascript" src="./RulesController.js"></script>
+    <script type="text/javascript" src="./lib/vue.global.js"></script>
+    <script type="text/javascript" src="./assets/content-script.js"></script>
 
   </head>
   <body>
-    <div id="container" ng-controller="RulesController">
-      <h1>Switchyroo</h1>
+    <div id="app">
+      <h1>{{ message }}</h1>
+      <h1>Switchyroo {{message}}</h1>
       <input type="checkbox" class="active" name="active" ng-model="settings.isEnabled"  />
       <label>Enabled</label>
       <p ng-if="!settings.isEnabled" id="not-enabled">
@@ -62,5 +61,6 @@
           </li>
         </ul>
       </div>
+
   </body>
 </html>

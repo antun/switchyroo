@@ -1,0 +1,909 @@
+{
+  "configure-active": {
+    "Cotton-On": {
+      "customerId": "1632",
+      "shortName": "cog",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": ""
+      },
+      "filename": "cog",
+      "renderType": "2D",
+      "circleCiApiKey": ""
+    },
+    "Fender": {
+      "name": "Fender",
+      "id": 1547,
+      "productId": 21048,
+      "locale": "en_us",
+      "customerId": "1547",
+      "shortName": "fen",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "http://shop.fender.com/en-US/mod-shop/telecaster/0181901706.html",
+      "landingPageUrl": "https://shop.fender.com/en-US/mod-shop/",
+      "customerEnv": {
+        "link": "https://dev07-web-fmic.demandware.net/s/Fender/telecaster/0181901706.html",
+        "credentialsLink": "https://confluence.ontrq.com/display/FEN"
+      },
+      "hasCatalog": true,
+      "filename": "fen",
+      "renderType": "3D"
+    },
+    "Franklin": {
+      "name": "Franklin",
+      "id": 1525,
+      "productId": 21956,
+      "locale": "en_us",
+      "customerId": "1525",
+      "shortName": "fra",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://franklinsports.com/the-powerstrap",
+      "landingPageUrl": "http://franklinsports.com/shop/custom",
+      "customerEnv": {
+        "link": "http://franklinsports.dev.magecore.com/shop/custom/",
+        "credentialsLink": "https://confluence.ontrq.com/display/FRA"
+      },
+      "hasCatalog": true,
+      "filename": "franklin",
+      "renderType": "3D"
+    },
+    "Hydro Flask WebGL": {
+      "name": "Hydro Flask",
+      "id": 1577,
+      "productId": 23275,
+      "locale": "en_us",
+      "customerId": "1577",
+      "shortName": "hyd",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.hydroflask.com/my-hydro-standard-mouth",
+      "landingPageUrl": "https://www.hydroflask.com/my-hydro",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/HYD"
+      },
+      "filename": "hyd",
+      "renderType": "3D"
+    },
+    "Kendra Scott": {
+      "name": "Kendra Scott",
+      "id": 1552,
+      "productId": 21129,
+      "locale": "en_us",
+      "customerId": "1552",
+      "shortName": "ken",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.kendrascott.com/customize/colorbar.html?recipe=39285301",
+      "landingPageUrl": "https://www.kendrascott.com/custom-jewelry.html",
+      "customerEnv": {
+        "link": "https://staging-web-kendrascott.demandware.net/custom-jewelry-home-charms.html",
+        "credentialsLink": "https://confluence.ontrq.com/display/KEN"
+      },
+      "filename": "kendrascott",
+      "renderType": "2D"
+    },
+    "Kendra Scott - Charm Bar": {
+      "skipCustomer": true,
+      "customerId": "1574",
+      "shortName": "kencharm",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.kendrascott.com/customize/charm-colorbar.html",
+      "landingPageUrl": "https://www.kendrascott.com/custom-jewelry-home-charms.html",
+      "customerEnv": {
+        "link": "https://staging-web-kendrascott.demandware.net/custom-jewelry-home-charms.html",
+        "credentialsLink": "https://confluence.ontrq.com/display/KEN"
+      },
+      "filename": "kencharm",
+      "renderType": "2D"
+    },
+    "LensCrafters": {
+      "customerId": "1614",
+      "shortName": "lcr",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": ""
+      },
+      "filename": "lcr",
+      "renderType": "2D"
+    },
+    "Louis Vuitton": {
+      "name": "Louis Vuitton",
+      "id": 1562,
+      "productId": 21429,
+      "locale": "en_US",
+      "customerId": "1562",
+      "shortName": "lou",
+      "configureVersions": [3],
+      "liveUrl": "https://us.louisvuitton.com/eng-us/products/speedy-30-bandouliere-my-lv-heritage-monogram-008944",
+      "landingPageUrl": "https://us.louisvuitton.com/eng-us/women/personalization/handbags-travel/_/N-usvby6",
+      "customerEnv": {
+        "link": "http://us-ppa.louisvuitton.com/eng-us/homepage",
+        "credentialsLink": "https://confluence.ontrq.com/display/LOU"
+      },
+      "filename": "lou",
+      "renderType": "2D",
+      "circleCiApiKey": "efdadaf3c6c6dfb82e253fb2e9d64cc82f26e1de"
+    },
+    "Madewell": {
+      "name": "Madewell",
+      "id": 1571,
+      "productId": 21854,
+      "locale": "en_us",
+      "customerId": "1571",
+      "shortName": "mad",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.madewell.com/the-zip-top-medium-transport-tote-AE189.html",
+      "landingPageUrl": "https://www.madewell.com/womens/gift-guide/personalized-gifts",
+      "customerEnv": {
+        "link": "https://staging-na01-jcrew.demandware.net/s/madewellUS",
+        "credentialsLink": "https://confluence.ontrq.com/display/MAD"
+      },
+      "filename": "mad",
+      "renderType": "2D"
+    },
+    "Michael Kors": {
+      "name": "Michael Kors",
+      "id": 1557,
+      "productId": 21190,
+      "locale": "en_us",
+      "customerId": "1557",
+      "shortName": "kor",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.michaelkors.com/jet-set-medium-saffiano-leather-top-zip-tote-bag/_/R-US_30T5GTVT2L?color=0513&customize=1",
+      "landingPageUrl": "https://www.michaelkors.com/trend/the-monogram-shop/_/N-1jh6ajd",
+      "customerEnv": {
+        "link": "http://sit.michaelkors.com/",
+        "credentialsLink": "https://confluence.ontrq.com/display/KOR"
+      },
+      "hasCatalog": true,
+      "filename": "kor",
+      "renderType": "2D"
+    },
+    "Nixon 3D (Code)": {
+      "customerId": "1550",
+      "id": 1550,
+      "shortName": "nix",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.nixon.com/us/en/sentry-custom/A105-2800-00.html",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/NIX"
+      },
+      "filename": "nix",
+      "renderType": "3D"
+    },
+    "Nixon WebGL": {
+      "customerId": "1567",
+      "id": 1567,
+      "shortName": "nix",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.nixon.com/us/en/sentry-custom/A105-2800-00.html",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/NIX"
+      },
+      "filename": "nix",
+      "renderType": "3D"
+    },
+    "Nixon 2D": {
+      "name": "Nixon",
+      "id": 1567,
+      "productId": 23145,
+      "locale": "en_US",
+      "customerId": "1567",
+      "shortName": "nix",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.nixon.com/us/en/sentry-custom/A105-2800-00.html",
+      "landingPageUrl": "https://www.nixon.com/us/en/custom-watches",
+      "customerEnv": {
+        "link": "http://stg.nixon.com/us/en/custom-watches",
+        "credentialsLink": "https://confluence.ontrq.com/display/NIX"
+      },
+      "filename": "nix",
+      "renderType": "2D"
+    },
+    "Oakley": {
+      "name": "Oakley",
+      "id": 1479,
+      "productId": 20450,
+      "locale": "en",
+      "customerId": "1479",
+      "shortName": "oak",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "http://www.oakley.com/en/custom/custom-latch-sq/custom-product/OCP-9353?vendorId=9353&region=US&currency=USD&lang=en_us&fluidId=p_21113&productId=21113&wf=prod&analyticsAccountName=US&skuCode=OOCPUS9353&categoryCode=c",
+      "landingPageUrl": "https://www.oakley.com/en-us/shop/custom",
+      "customerEnv": {
+        "link": "https://confluence.ontrq.com/display/LUX/pages/731807761/LUX.OAK+Environments",
+        "credentialsLink": "https://confluence.ontrq.com/display/OAK"
+      },
+      "filename": "oak",
+      "renderType": "2D",
+      "circleCiApiKey": "cf6174227f335fb6a51c1be51c6c0c9c3d62d4b6"
+    },
+    "Oakley Retail": {
+      "name": "Oakley Retail",
+      "id": 1620,
+      "productId": 20450,
+      "locale": "en",
+      "customerId": "1620",
+      "shortName": "oak-retail",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "http://www.oakley.com/en/custom/custom-latch-sq/custom-product/OCP-9353?vendorId=9353&region=US&currency=USD&lang=en_us&fluidId=p_21113&productId=21113&wf=prod&analyticsAccountName=US&skuCode=OOCPUS9353&categoryCode=c",
+      "landingPageUrl": "https://www.oakley.com/en-us/shop/custom",
+      "customerEnv": {
+        "link": "https://confluence.ontrq.com/display/LUX/pages/731807761/LUX.OAK+Environments",
+        "credentialsLink": "https://confluence.ontrq.com/display/OAK"
+      },
+      "filename": "oak-retail",
+      "renderType": "2D",
+      "skipCustomer": true,
+      "circleCiApiKey": "cf6174227f335fb6a51c1be51c6c0c9c3d62d4b6"
+    },
+    "Pandora": {
+      "name": "Pandora",
+      "id": 1576,
+      "productId": 23215,
+      "locale": "en_US",
+      "customerId": "1576",
+      "shortName": "pan",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://us.pandora.net/en/customize-your-bracelet/customize-your-own-bracelet.html",
+      "landingPageUrl": "https://us.pandora.net/en/charm-bracelets/pandora-reflexions/",
+      "customerEnv": {
+        "link": "http://staging-usestore-pandora.demandware.net/s/en-US/en/customize-your-bracelet/customize-your-own-bracelet.html",
+        "credentialsLink": "https://confluence.ontrq.com/display/PAN"
+      },
+      "filename": "pan",
+      "renderType": "2D"
+    },
+    "Puma": {
+      "name": "Puma",
+      "id": 1533,
+      "productId": 20878,
+      "locale": "en_US",
+      "customerId": "1533",
+      "shortName": "pum",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://eu.puma.com/uk/en/pd/bvb-mens-home-replica-jersey/4060981664833.html?customize=true",
+      "landingPageUrl": "https://uk.puma.com/uk/en/search?q=replica",
+      "customerEnv": {
+        "link": "http://staging.eu.puma.com/en/pd/afc-home-replica-shirt-with-sponsor-logo/747566.html?customize=Apparel",
+        "credentialsLink": "https://confluence.ontrq.com/display/PUMA/pages/11370536/PUM.45+-+Puma+Configure"
+      },
+      "filename": "puma",
+      "renderType": "2D"
+    },
+    "Ralph Lauren": {
+      "name": "Ralph Lauren",
+      "id": 1563,
+      "productId": 21561,
+      "locale": "en_us",
+      "customerId": "1563",
+      "shortName": "ral",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.ralphlauren.com/customize-men-polo-shirts/mens-polo-shirt/CYO0001A.html",
+      "landingPageUrl": "https://www.ralphlauren.com/custom",
+      "customerEnv": {
+        "link": "https://confluence.ontrq.com/pages/viewpage.action?pageId=206381342",
+        "credentialsLink": "https://confluence.ontrq.com/display/RAL"
+      },
+      "filename": "ral",
+      "renderType": "2D",
+      "circleCiApiKey": "0dfb22f92b6f9cde92f2c8f71ed8470e2a9ac638"
+    },
+    "Ray-Ban": {
+      "name": "Ray-Ban",
+      "id": 1581,
+      "productId": 22956,
+      "locale": "en_US",
+      "customerId": "1581",
+      "shortName": "rbn",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.ray-ban.com/usa/customize/rb-3025-aviator-large-metal-sunglasses",
+      "landingPageUrl": "https://www.ray-ban.com/usa/customize",
+      "customerEnv": {
+        "link": "https://integration.ray-ban.com/usa/customize/rb-3025-aviator-large-metal-sunglasses",
+        "credentialsLink": "https://confluence.ontrq.com/display/LUX"
+      },
+      "filename": "ray",
+      "renderType": "2D",
+      "circleCiApiKey": "e4f29b5c18fdcc95ea73312eb7b115af1d06ba18"
+    },
+    "Ray-Ban 2022": {
+      "name": "Ray-Ban 2022",
+      "id": 1628,
+      "productId": 22956,
+      "locale": "en_US",
+      "customerId": "1628",
+      "shortName": "ray-ban",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.ray-ban.com/usa/customize/rb-3025-aviator-large-metal-sunglasses",
+      "landingPageUrl": "https://www.ray-ban.com/usa/customize",
+      "customerEnv": {
+        "link": "https://integration.ray-ban.com/usa/customize/rb-3025-aviator-large-metal-sunglasses",
+        "credentialsLink": "https://confluence.ontrq.com/display/LUX"
+      },
+      "filename": "ray-ban",
+      "renderType": "2D",
+      "circleCiApiKey": "e4f29b5c18fdcc95ea73312eb7b115af1d06ba18"
+    },
+    "Ray-Ban Retail": {
+      "skipCustomer": true,
+      "customerId": "1589",
+      "shortName": "rbn-retail",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.ray-ban.com/usa",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "https://www.fc-test.instore.oakley.com/sunglasshut/3024/en-US?reset=1",
+        "credentialsLink": "https://confluence.ontrq.com/display/LUX"
+      },
+      "filename": "rbn-retail",
+      "renderType": "2D",
+      "circleCiApiKey": "d91c1e9090ce1e17e4a2b78e9a52f5268bd5ec0b"
+    },
+    "Rogue Fitness": {
+      "name": "Rogue Fitness",
+      "id": 1573,
+      "productId": 21904,
+      "locale": "en_us",
+      "customerId": "1573",
+      "shortName": "rfi",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.roguefitness.com/the-ohio-bar-custom",
+      "landingPageUrl": "https://www.roguefitness.com/catalogsearch/result?q=custom",
+      "customerEnv": {
+        "link": "https://warmup.roguefitness.com/the-ohio-bar-custom",
+        "credentialsLink": "https://confluence.ontrq.com/display/RFI"
+      },
+      "filename": "rfi",
+      "renderType": "2D",
+      "circleCiApiKey": "649f1d1f027bea4fbdf58af0ead338c23e851b90"
+    },
+    "Sunglass Hut": {
+      "name": "Sunglass Hut",
+      "id": 1590,
+      "productId": 23530,
+      "locale": "en_US",
+      "customerId": "1590",
+      "shortName": "sgh",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/LUX"
+      },
+      "hasCatalog": true,
+      "filename": "sgh",
+      "renderType": "2D",
+      "circleCiApiKey": ""
+    },
+    "Timberland": {
+      "name": "Timberland",
+      "id": 636,
+      "productId": 20355,
+      "locale": "en_us",
+      "customerId": "636",
+      "shortName": "tim",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.timberland.com/shop/CategoryDisplay?catalogId=10101&langId=-1&categoryId=13502&storeId=7101&productId=p_20378&audience=men&page=configure",
+      "landingPageUrl": "https://www.timberland.com/custom.html",
+      "customerEnv": {
+        "link": "https://qa.timberland.com/custom.html",
+        "credentialsLink": "https://confluence.ontrq.com/display/TIM"
+      },
+      "hasCatalog": true,
+      "filename": "timberland",
+      "renderType": "3D"
+    },
+    "Waddington": {
+      "name": "Waddington",
+      "id": 1579,
+      "productId": 22709,
+      "locale": "en_us",
+      "customerId": "1579",
+      "shortName": "wad",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://mypartyware.com/collections/customize/products/configure",
+      "landingPageUrl": "https://mypartyware.com/",
+      "customerEnv": {
+        "link": "https://dev-wnas.myshopify.com/",
+        "credentialsLink": "https://confluence.ontrq.com/display/WAD"
+      },
+      "filename": "wad",
+      "renderType": "2D"
+    },
+    "Yankee Candle Company": {
+      "name": "Yankee Candle Company",
+      "id": 1565,
+      "productId": 21929,
+      "locale": "en_US",
+      "customerId": "1565",
+      "shortName": "ycc",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.yankeecandle.com/personalizeCandle",
+      "landingPageUrl": "https://www.yankeecandle.com/personalizedcandles",
+      "customerEnv": {
+        "link": "https://perf1-www.yankeecandle.com/",
+        "credentialsLink": "https://confluence.ontrq.com/display/YCC"
+      },
+      "filename": "ycc",
+      "renderType": "2D",
+      "circleCiApiKey": "fc4df743850a72e37eb86867f40163df3229eaf2"
+    }
+  },
+  "configure-internal": {
+    "Base React": {
+      "customerId": "758",
+      "shortName": "base-react",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": ""
+      },
+      "hasCatalog": true,
+      "filename": "base-react",
+      "renderType": "2D"
+    },
+    "Base": {
+      "customerId": "758",
+      "shortName": "base",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": ""
+      },
+      "hasCatalog": true,
+      "filename": "base",
+      "renderType": "2D"
+    },
+    "Luxottica - PoC Oakley": {
+      "customerId": "1580",
+      "shortName": "lux-oak",
+      "configureVersions": [3],
+      "liveUrl": "",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/LUX"
+      },
+      "filename": "lux-oak",
+      "renderType": "2D"
+    },
+    "Luxottica - PoC Sunglass Hut": {
+      "customerId": "1583",
+      "shortName": "lux-sgh",
+      "configureVersions": [3],
+      "liveUrl": "",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/LUX"
+      },
+      "filename": "lux-sgh",
+      "renderType": "2D"
+    },
+    "Northern Trail Outfitters (Demo)": {
+      "customerId": "1508",
+      "shortName": "nto",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://sfra.ntoretail.cloud/on/demandware.store/Sites-NTO-SFRA-Site/en_US/Configure-Show",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": ""
+      },
+      "filename": "nto",
+      "renderType": "2D"
+    }
+  },
+  "configure-churned": {
+    "Brooks Brothers v2": {
+      "customerId": "1568",
+      "shortName": "bro",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.brooksbrothers.com/on/demandware.store/Sites-brooksbrothers-Site/default/Product-Configurator?id=configurator-dress-shirt",
+      "landingPageUrl": "http://www.brooksbrothers.com/designyourown/designyourown,default,pg.html?lid=topnav-menu",
+      "customerEnv": {
+        "link": "http://staging.web.brooksbrothers.demandware.net/on/demandware.store/Sites-brooksbrothers-Site/default/Product-Configurator?id=configurator-dress-shirt",
+        "credentialsLink": "https://confluence.ontrq.com/display/BB"
+      },
+      "hasCatalog": true,
+      "filename": "bro",
+      "renderType": "2D",
+      "circleCiApiKey": "136e603b118be0dbf8b31eec2a5bcbbd29c7bb02"
+    },
+    "Brooks Brothers (Deprecated)": {
+      "customerId": "1464",
+      "shortName": "bro",
+      "liveUrl": "http://www.brooksbrothers.com/designyourown/designyourown,default,pg.html?lid=topnav-menu",
+      "configureVersions": [2],
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/BB"
+      },
+      "filename": "bro",
+      "renderType": "2D"
+    },
+    "Calvin Klein": {
+      "customerId": "1585",
+      "shortName": "cal",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.calvinklein.us/en/custom-modern-cotton-bralette-52705992",
+      "landingPageUrl": "https://www.calvinklein.us/en/custom-clothing",
+      "customerEnv": {
+        "link": "https://ck-b2cna-pq1.pvh.com/en/custom-clothing",
+        "credentialsLink": "https://confluence.ontrq.com/display/CA/Calvin+Klein+Configure+Home"
+      },
+      "filename": "cal",
+      "renderType": "2D",
+      "circleCiApiKey": "745c61ba4863ceeff6bf5e80c4b8162a0199d669"
+    },
+    "Cartier": {
+      "customerId": "1566",
+      "shortName": "ctr",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "landingPageUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/CTR"
+      },
+      "filename": "ctr",
+      "renderType": "2D"
+    },
+    "Chaco": {
+      "customerId": "1535",
+      "shortName": "cha",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "http://www.chacos.com/US/en/customizable-men%27s-z-2-sandal/22586M.html",
+      "customerEnv": {
+        "link": "http://staging-na-wwwinc.demandware.net/s/chacos_us/en/mychaco/",
+        "credentialsLink": "https://confluence.ontrq.com/display/WOLC"
+      },
+      "hasCatalog": true,
+      "filename": "chacos",
+      "renderType": "3D"
+    },
+    "Hydro Flask": {
+      "customerId": "1554",
+      "shortName": "hyd",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "http://myhydro.hydroflask.com/my-hydro",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/HYD"
+      },
+      "filename": "hydroflask",
+      "renderType": "3D"
+    },
+    "Keds": {
+      "customerId": "1537",
+      "shortName": "ked",
+      "configureVersions": [2, 3],
+      "mobile": true,
+      "liveUrl": "http://www.keds.com/en/custom-crashback/23325W.html?icid=CustomLP_110815_Crashback",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/WOLK"
+      },
+      "filename": "keds"
+    },
+    "Keen": {
+      "customerId": "1484",
+      "shortName": "keen",
+      "configureVersions": [2],
+      "liveUrl": "http://www.keenfootwear.com/custom-product.aspx?cpi=p_20214",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/KEEN"
+      },
+      "filename": "keen"
+    },
+    "Lilly Pulitzer": {
+      "customerId": "1564",
+      "shortName": "lil",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/LIL"
+      },
+      "filename": "lil",
+      "renderType": "2D"
+    },
+    "Liquid Knits": {
+      "customerId": "1560",
+      "shortName": "liq",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/LIQ"
+      },
+      "filename": "liq",
+      "renderType": "3D"
+    },
+    "LL Bean": {
+      "customerId": "1510",
+      "shortName": "llb",
+      "configureVersions": [2],
+      "liveUrl": "http://www.llbean.com/llb/shop/82748?page=custom-boat-and-tote-bag",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/LLB"
+      },
+      "filename": "llb",
+      "renderType": "2D"
+    },
+    "LoveSac": {
+      "customerId": "1526",
+      "shortName": "lov",
+      "configureVersions": [2],
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "http://ww2.zeondemo.com/",
+        "credentialsLink": "https://confluence.ontrq.com/display/LOV"
+      }
+    },
+    "Matouk": {
+      "customerId": "1528",
+      "shortName": "mat",
+      "configureVersions": [2],
+      "liveUrl": "http://www.matouk.com/bed/umatouk-make-your-bed.html",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/MAT"
+      }
+    },
+    "Michael Kors v1": {
+      "customerId": "1531",
+      "shortName": "kor",
+      "configureVersions": [2],
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/KOR"
+      },
+      "customS3Path": "kor/{workflow}/v1",
+      "filename": "kor"
+    },
+    "M&M's": {
+      "customerId": "1541",
+      "shortName": "mms",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://www.mymms.com/configurator.do?customerType=B2C",
+      "customerEnv": {
+        "link": "https://mymms-v142-staging.aws.marketlive.com/configurator.do?customerType=B2C",
+        "credentialsLink": "https://confluence.ontrq.com/display/MMS"
+      },
+      "filename": "mms",
+      "renderType": "3D",
+      "circleCiApiKey": "ba0ab9d8c08e864d6c98aa75cc2842b05508af48"
+    },
+    "Nixon 3D": {
+      "customerId": "1550",
+      "shortName": "nix",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "http://www.nixon.com/on/demandware.store/Sites-US-Site/en_US/Product-Variation?pid=A1167&dwvar_A1167_color=2800&dwvar_A1167_size=00",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/NIX"
+      },
+      "filename": "nix",
+      "renderType": "3D"
+    },
+    "Ping": {
+      "name": "Ping",
+      "id": 1575,
+      "productId": 22301,
+      "locale": "en_us",
+      "customerId": "1572",
+      "shortName": "pin",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "https://ping.com/en-us/clubs/wedges/glide-forged/configure",
+      "landingPageUrl": "https://ping.com/en-us/clubs/wedges",
+      "customerEnv": {
+        "link": "https://stage.ping.com/test/fluid/glide-forged/configure",
+        "credentialsLink": "https://confluence.ontrq.com/display/PNG/"
+      },
+      "filename": "png",
+      "renderType": "2D"
+    },
+    "Serena & Lily": {
+      "customerId": "1463",
+      "shortName": "ser",
+      "liveUrl": "",
+      "configureVersions": [2],
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://fluidretail.atlassian.net/wiki/pages/viewpage.action?pageId=66551844"
+      }
+    },
+    "Sperry": {
+      "customerId": "1538",
+      "shortName": "spe",
+      "configureVersions": [2, 3],
+      "mobile": true,
+      "liveUrl": "http://www.sperry.com/en/customizable-authentic-original-2-eye-boat-shoe/23326M.html",
+      "customerEnv": {
+        "link": "https://dev03-na-wwwinc.demandware.net/s/sperry_us/en/custom/",
+        "credentialsLink": "https://confluence.ontrq.com/display/WOLS"
+      },
+      "hasCatalog": true,
+      "filename": "sperry",
+      "renderType": "3D"
+    },
+    "Stance": {
+      "customerId": "1534",
+      "shortName": "sta",
+      "configureVersions": [2],
+      "liveUrl": "https://www.stance.com/canvas/men",
+      "customerEnv": {
+        "link": "http://test.stance.com/canvas/men?productId=p_20873",
+        "credentialsLink": "https://confluence.ontrq.com/display/STA"
+      },
+      "filename": "sta"
+    },
+    "Reebok": {
+      "customerId": "1475",
+      "shortName": "ree",
+      "configureVersions": [2, 3],
+      "mobile": true,
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/REE"
+      }
+    },
+    "TaylorMade": {
+      "customerId": "1543",
+      "shortName": "tay",
+      "configureVersions": [2, 3],
+      "mobile": true,
+      "liveUrl": "http://taylormadegolf.com/customgolfball",
+      "customerEnv": {
+        "link": "https://staging.taylormadegolf.com/customgolfball",
+        "credentialsLink": "https://confluence.ontrq.com/display/TAY"
+      },
+      "filename": "tay",
+      "renderType": "3D"
+    },
+    "The North Face": {
+      "customerId": "1443",
+      "shortName": "tnf",
+      "configureVersions": [2],
+      "liveUrl": "https://www.thenorthface.com/shop/custom?productId=p_20104&audience=men&page=configure",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/TC"
+      },
+      "filename": "tnf",
+      "renderType": "3D"
+    },
+    "UGG Australia": {
+      "customerId": "1496",
+      "shortName": "ugg",
+      "configureVersions": [2],
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/DEC"
+      }
+    },
+    "Vans": {
+      "customerId": "758",
+      "shortName": "van",
+      "configureVersions": [2],
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "http://qa.vans.com/customs.html",
+        "credentialsLink": "https://confluence.ontrq.com/display/VAN"
+      }
+    },
+    "Wild Things Gear": {
+      "customerId": "1466",
+      "shortName": "wil",
+      "configureVersions": [2],
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": ""
+      }
+    },
+    "Wolverine": {
+      "customerId": "1553",
+      "shortName": "wol",
+      "configureVersions": [3],
+      "mobile": true,
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/WOL"
+      },
+      "hasCatalog": true,
+      "filename": "wol",
+      "renderType": "3D"
+    }
+  },
+  "vmm-active": {},
+  "vmm-churned": {
+    "Generation Tux": {
+      "customerId": "1529",
+      "shortName": "gtx",
+      "configureVersions": [2],
+      "liveUrl": "https://www.generationtux.com/style-inspiration/create-a-look/",
+      "customerEnv": {
+        "link": "http://gen-tux-ui.herokuapp.com/home",
+        "credentialsLink": "https://confluence.ontrq.com/display/GT"
+      }
+    },
+    "JC Penney": {
+      "customerId": "1539",
+      "shortName": "jcp",
+      "configureVersions": [2],
+      "liveUrl": "",
+      "customerEnv": {
+        "link": "",
+        "credentialsLink": "https://confluence.ontrq.com/display/JCP"
+      }
+    },
+    "Sur La Table": {
+      "customerId": "1548",
+      "shortName": "slt",
+      "configureVersions": [3],
+      "liveUrl": "http://www.surlatable.com/category/TCA-310755/?_requestid=6532634",
+      "customerEnv": {
+        "link": "http://seattle-stage2.surlatable.com/category/TCA-310755/",
+        "credentialsLink": "https://confluence.ontrq.com/display/SLT"
+      }
+    }
+  }
+}

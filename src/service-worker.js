@@ -7,14 +7,6 @@ import {
   getActiveCustomers
 } from './switcher-lib.js';
 
-const loadCustomerData = () => {
-  return fetch('https://s3.amazonaws.com/fluid-implementations/customers.json')
-    .then(response => response.json())
-    .catch(err => {
-      console.error('Failed to load customers.json', err);
-    });
-}
-
 // This is a debug utility function
 const writeAllRulesToConsole = async () => { // eslint-disable-line no-unused-vars
   return chrome.declarativeNetRequest.getSessionRules().then(result => {
@@ -41,30 +33,29 @@ const getCustomerData = async () => {
 }
 
 
-const updateRules = async (pattern, stripContentSecurityPolicy) => {
-  await getCustomerData().then((allCustomers) => {
-    const rules = prepareRedirectRules(pattern, allCustomers);
-    let ruleId = rules.length;
+const updateRules = async (rules, stripContentSecurityPolicy) => {
+  const processedRules = prepareRedirectRules(rules);
 
-    if (stripContentSecurityPolicy) {
-      ruleId++;
-      rules.push({
-        id: ruleId,
-        action: {
-          type: 'modifyHeaders',
-          responseHeaders: [
-            { header: 'content-security-policy', operation: 'remove' }
-          ]
-        },
-        condition: {
-          urlFilter: '*', resourceTypes: ['main_frame']
-        }
-      });
-    }
-
-    return chrome.declarativeNetRequest.updateSessionRules({
-      addRules: rules
+  /*
+  if (stripContentSecurityPolicy) {
+    ruleId++;
+    rules.push({
+      id: ruleId,
+      action: {
+        type: 'modifyHeaders',
+        responseHeaders: [
+          { header: 'content-security-policy', operation: 'remove' }
+        ]
+      },
+      condition: {
+        urlFilter: '*', resourceTypes: ['main_frame']
+      }
     });
+  }
+  */
+
+  return chrome.declarativeNetRequest.updateSessionRules({
+    addRules: processedRules
   });
 };
 
@@ -79,9 +70,20 @@ const getCurrentTab = async () => {
 
 const defaultSettings = {
   isEnabled: false,
-  pattern: '{protocol}://localhost/~antunkarlovac/imp-{shortName}/assets/{fileType}/fluidConfigure-{filename}.{fileType}',
-  stripContentSecurityPolicy: true,
-  showCurrentRules: false
+  rules: [
+    {
+      id: 0,
+      type: 'redirect',
+      search: 'https://www.example.com/abc',
+      replace: 'https://www.example.com/def'
+    },
+    {
+      id: 1,
+      type: 'redirect',
+      search: 'https://www.example.com/abc',
+      replace: 'https://www.example.com/def'
+    }
+  ]
 };
 
 const validateSettingsFormat = (settings) => {
@@ -132,17 +134,23 @@ chrome.runtime.onMessage.addListener(({message, arg}, sender, sendResponse) => {
     chrome.storage.local.set({ 'settings': arg }).then(async () => {
       updateIcon();
       disableAllRules().then(async () => {
-        if (arg.isEnabled) {
-          updateRules(arg.pattern, arg.stripContentSecurityPolicy).then(sendResponse);
-        } else {
-          sendResponse();
-        }
+        updateRules(arg).then(sendResponse);
       });
     });
     return true;
   }
   if (message === 'get-rules') {
     chrome.declarativeNetRequest.getSessionRules().then(sendResponse);
+    return true;
+  }
+  if (message === 'save-rules') {
+    disableAllRules().then(async () => {
+      if (arg.isEnabled) {
+        updateRules(arg.pattern, arg.stripContentSecurityPolicy).then(sendResponse);
+      } else {
+        sendResponse();
+      }
+    });
     return true;
   }
   if (message === 'get-matched-rules') {
@@ -162,28 +170,15 @@ chrome.runtime.onMessage.addListener(({message, arg}, sender, sendResponse) => {
     });
     return true;
   }
-  if (message === 'get-customer-json') {
-    getCustomerData().then((allCustomers) => {
-      for (var i=0; i<allCustomers.length; i++) {
-        const customer = allCustomers[i];
-        if (customer.id === arg) {
-          sendResponse(customer);
-        }
-      }
-    });
-    return true;
-  }
 });
 
-const main = () => {
-  loadCustomerData().then(async response => {
-    chrome.storage.local.set({ 'customer-data': response });
-    await disableAllRules();
-    const settings = await getSettings();
-    await updateRules(settings.pattern, settings.stripContentSecurityPolicy);
-    // await writeAllRulesToConsole();
-    updateIcon();
-  });
+console.log('hello');
+const main = async () => {
+  await disableAllRules();
+  const settings = await getSettings();
+  await updateRules();
+  // await writeAllRulesToConsole();
+  updateIcon();
 };
 main();
 
