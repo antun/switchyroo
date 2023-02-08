@@ -111,7 +111,9 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['run:vite', 'copy:main', 'replace:version']);
   grunt.registerTask('build', ['default', 'compress']);
-  grunt.registerTask('publish', ['bump', 'build']);
+  grunt.registerTask('publish:patch', ['bump:patch', 'build']);
+  grunt.registerTask('publish:minor', ['bump:minor', 'build']);
+  grunt.registerTask('publish:major', ['bump:major', 'build']);
   grunt.registerTask('test', ['run:npm_test_jest']);
 
 };

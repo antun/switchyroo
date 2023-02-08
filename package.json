@@ -1,6 +1,6 @@
 {
   "name": "Switchyroo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Antun Karlovac <antun@antunkarlovac.com>",
     "url": "http://antunkarlovac.com/"
@@ -8,7 +8,9 @@
   "scripts": {
     "build": "grunt build",
     "watch": "grunt watch",
-    "publish": "grunt publish",
+    "publish:patch": "grunt publish:patch",
+    "publish:minor": "grunt publish:minor",
+    "publish:major": "grunt publish:major",
     "test": "jest"
   },
   "repository": {

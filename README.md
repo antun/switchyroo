@@ -31,7 +31,7 @@ TODO
 
 Deployment steps:
 
-1. Do a `npm run publish`. This will create a new version and bump the package file. It will also create an installable zip file in dist/switchyroo.zip.
+1. Do a `npm run publish:patch` (or `publish:minor` or `publish:major`). This will create a new version and bump the package file. It will also create an installable zip file in dist/switchyroo.zip.
 2. Go to https://chrome.google.com/webstore/developer/dashboard and login .
 3. Click edit on the extension.
 4. Upload the switchyroo.zip file.
