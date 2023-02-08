@@ -2,6 +2,7 @@
 import Header from './components/Header.vue'
 import Settings from './components/Settings.vue'
 import Rule from './components/Rule.vue'
+const version = __APP_VERSION__
 </script>
 
 <script>
@@ -74,7 +75,7 @@ export default {
 <template>
   <header>
     <div class="wrapper">
-      <Header />
+      <Header v-bind:version="version" />
     </div>
   </header>
 
