@@ -1,17 +1,19 @@
 {
   "name": "Switchyroo",
-  "version": "0.0.17",
+  "version": "0.0.1",
   "author": {
     "name": "Antun Karlovac <antun@antunkarlovac.com>",
     "url": "http://antunkarlovac.com/"
   },
   "scripts": {
+    "build": "grunt build",
     "watch": "grunt watch",
+    "publish": "grunt publish",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:fluidretail/imp-implementationswitcher.git"
+    "url": "https://github.com/antun/switchyroo"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",

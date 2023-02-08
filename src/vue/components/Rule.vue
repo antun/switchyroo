@@ -18,6 +18,7 @@ defineEmits(['update-rule']);
 
 <template>
   <div class="rule">
+    <button class="deleteButton" @click="(event) => $emit('deleteRule', id)" >x</button>
     <input type="text" class="ruleInput"
         v-bind:value="search" v-bind:title="search"
         @input="(event) => $emit('updateRule:search', id, event.target.value)" />
@@ -25,16 +26,19 @@ defineEmits(['update-rule']);
     <input type="text" class="ruleInput"
         v-bind:value="replace" v-bind:title="replace"
         @input="(event) => $emit('updateRule:replace', id, event.target.value)" />
-    <button @click="(event) => $emit('deleteRule', id)" >x</button>
   </div>
 </template>
 
 <style scoped>
 .ruleInput {
-  width: 15rem;
+  width: 16rem;
 }
 
 .rule {
   padding-bottom: 0.3rem;
+}
+
+.deleteButton {
+  margin-right: 0.2rem;
 }
 </style>

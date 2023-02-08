@@ -3,11 +3,12 @@
  */
 
 import {
-  prepareRedirectRules,
-  getActiveCustomers
+  prepareRules,
 } from './switcher-lib.js';
 
 // This is a debug utility function
+// Because background.service_worker.type = 'module', you cannot call this
+// manually from the JS console.
 const writeAllRulesToConsole = async () => { // eslint-disable-line no-unused-vars
   return chrome.declarativeNetRequest.getSessionRules().then(result => {
     console.log('bg-script writeAllRulesToConsole', result);
@@ -25,16 +26,8 @@ const disableAllRules = async () => {
   });
 };
 
-const getCustomerData = async () => {
-  return chrome.storage.local.get(['customer-data']).then((result) => {
-    const allCustomers = getActiveCustomers(result['customer-data']);
-    return allCustomers;
-  });
-}
-
-
-const updateRules = async (rules, stripContentSecurityPolicy) => {
-  const processedRules = prepareRedirectRules(rules);
+const updateSessionRules = async (rules) => {
+  const processedRules = prepareRules(rules);
 
   /*
   if (stripContentSecurityPolicy) {
@@ -66,10 +59,8 @@ const getCurrentTab = async () => {
   return tab;
 }
 
-
-
 const defaultSettings = {
-  isEnabled: false,
+  isEnabled: true,
   rules: [
     {
       id: 0,
@@ -87,6 +78,9 @@ const defaultSettings = {
 };
 
 const validateSettingsFormat = (settings) => {
+  if (typeof settings === 'undefined') {
+    return false;
+  }
   for (let key in defaultSettings) {
     if (defaultSettings.hasOwnProperty(key)) {
       if (!settings.hasOwnProperty(key) || typeof settings[key] !== typeof defaultSettings[key]) {
@@ -130,11 +124,20 @@ chrome.runtime.onMessage.addListener(({message, arg}, sender, sendResponse) => {
     getSettings().then(sendResponse);
     return true;
   }
-  if (message === 'save-settings') {
-    chrome.storage.local.set({ 'settings': arg }).then(async () => {
-      updateIcon();
-      disableAllRules().then(async () => {
-        updateRules(arg).then(sendResponse);
+  if (message === 'save-enabled') {
+    getSettings().then(async (settings) => {
+      settings.isEnabled = arg;
+      chrome.storage.local.set({ 'settings': settings }).then(async () => {
+        disableAllRules().then(async () => {
+          updateIcon();
+          if (settings.isEnabled) {
+            updateSessionRules(settings.rules).then(async () => {
+              sendResponse(settings.isEnabled);
+            });
+          } else {
+            sendResponse(settings.isEnabled);
+          }
+        });
       });
     });
     return true;
@@ -144,12 +147,15 @@ chrome.runtime.onMessage.addListener(({message, arg}, sender, sendResponse) => {
     return true;
   }
   if (message === 'save-rules') {
-    disableAllRules().then(async () => {
-      if (arg.isEnabled) {
-        updateRules(arg.pattern, arg.stripContentSecurityPolicy).then(sendResponse);
-      } else {
-        sendResponse();
-      }
+    getSettings().then(async (settings) => {
+      settings.rules = arg;
+      chrome.storage.local.set({ 'settings': settings }).then(async () => {
+        disableAllRules().then(async () => {
+          updateSessionRules(settings.rules).then(async () => {
+            sendResponse(settings.rules);
+          });
+        });
+      });
     });
     return true;
   }
@@ -172,12 +178,11 @@ chrome.runtime.onMessage.addListener(({message, arg}, sender, sendResponse) => {
   }
 });
 
-console.log('hello');
 const main = async () => {
   await disableAllRules();
   const settings = await getSettings();
-  await updateRules();
-  // await writeAllRulesToConsole();
+  await updateSessionRules(settings.rules);
+  await writeAllRulesToConsole();
   updateIcon();
 };
 main();

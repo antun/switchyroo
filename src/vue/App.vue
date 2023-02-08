@@ -9,21 +9,14 @@ export default {
   data() {
     return {
       enabled: true,
-      rules: [
-        {
-          id: 0,
-          type: 'redirect',
-          search: 'https://www.example.com/abc',
-          replace: 'https://www.example.com/def'
-        },
-        {
-          id: 1,
-          type: 'redirect',
-          search: 'https://www.example.com/abc',
-          replace: 'https://www.example.com/def'
-        }
-      ]
+      rules: []
     }
+  },
+  beforeCreate() {
+    chrome.runtime.sendMessage({message: 'get-settings'}, async (settings) => {
+      this.enabled = settings.isEnabled;
+      this.rules = settings.rules;
+    });
   },
   watch: {
     enabled(oldVal, newVal) {
@@ -36,8 +29,20 @@ export default {
   methods: {
     saveRules() {
       chrome.runtime.sendMessage({message: 'save-rules', arg: this.rules}, async (response) => {
-        console.log('App.vue, rules saved', response);
+        // Rules saved
       });
+    },
+    saveEnabled() {
+      chrome.runtime.sendMessage({message: 'save-enabled', arg: this.enabled}, async (response) => {
+        // Enabled saved
+        console.log('enabled saved', response);
+      });
+
+    },
+    updateEnabled(isEnabled) {
+      console.log('updateEnabled()', isEnabled);
+      this.enabled = isEnabled;
+      this.saveEnabled();
     },
     updateRuleSearch(ruleId, arg) {
       const rule = this.rules.find(rule => rule.id === ruleId);
@@ -52,6 +57,15 @@ export default {
     deleteRule(ruleId) {
       this.rules = this.rules.filter(rule => rule.id !== ruleId)
       this.saveRules();
+    },
+    beginAddRule() {
+      const newRuleId = Math.max(...this.rules.map(rule => rule.id)) + 1;
+      this.rules.push({
+        id: newRuleId,
+        type: 'redirect',
+        search: 'https://www.example.com/abc',
+        replace: 'https://www.example.com/def'
+      });
     }
   }
 }
@@ -66,17 +80,26 @@ export default {
 
   <main>
     <div class="wrapper">
-      <Settings v-model:enabled="enabled" />
+      <Settings v-model:enabled="enabled"
+                @enabled-checked="updateEnabled" />
+              
       <hr />
-      <div class="rulesContainer">
-        <Rule v-for="rule in rules" 
-              v-bind:key="rule.id"
-              v-bind:id="rule.id"
-              v-bind:search="rule.search" 
-              v-bind:replace="rule.replace"
-              @update-rule:search="updateRuleSearch"
-              @update-rule:replace="updateRuleReplace"
-              @delete-rule="deleteRule" />
+      <div class="rulesSection"
+           v-bind:class="{ rulesDisabled: !enabled }">
+        <div class="rulesContainer">
+          <Rule v-for="rule in rules" 
+                v-bind:key="rule.id"
+                v-bind:id="rule.id"
+                v-bind:search="rule.search" 
+                v-bind:replace="rule.replace"
+                @update-rule:search="updateRuleSearch"
+                @update-rule:replace="updateRuleReplace"
+                @delete-rule="deleteRule" />
+        </div>
+        <div class="addRuleContainer">
+          <button @click="beginAddRule">+
+          </button>
+        </div>
       </div>
     </div>
   </main>
@@ -85,6 +108,10 @@ export default {
 <style scoped>
 header {
   line-height: 1.5;
+}
+
+.rulesDisabled {
+  background-color: #eaeaea;
 }
 
 @media (min-width: 1024px) {
@@ -100,5 +127,6 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+
 }
 </style>
