@@ -12,6 +12,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src/vue', import.meta.url))
     }
   },
+  define: {
+    '__APP_VERSION__': JSON.stringify(process.env.npm_package_version)
+  },
   build: {
     /* cssCodeSplit: false, */
     outDir: './dist/switchyroo/popup',
