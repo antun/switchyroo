@@ -9,13 +9,6 @@ End-User Installation
 ---------------------
 TODO
 
-Manual (Develoer) Installation
-------------------------------
-1. Check this out locally.
-2. In Chrome, go to chrome://extensions/
-3. Click Load unpacked extension...
-4. Select the src/ directory of this repo.
-
 
 Development
 ===========
