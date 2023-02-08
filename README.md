@@ -3,7 +3,7 @@ Switchyroo
 
 Chrome extension for re-writing URLs.
 
-![switcher.jpg](https://bitbucket.org/repo/adqqjE/images/2057778445-switcher.jpg)
+![screenshot.jpg](materials/screenshot/screenshot.jpg)
 
 End-User Installation
 ---------------------
