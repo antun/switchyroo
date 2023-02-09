@@ -38,3 +38,9 @@ export const prepareRules = (rules) => {
   }
   return preparedRules;
 };
+
+// Remove properties that are used by UI from rules so they don't get saved in storage
+export const sanitizeRules = (dirtyRules) => {
+  const cleanRules = dirtyRules.map( ({sessionRuleId, matched, ...keep}) => keep);
+  return cleanRules;
+};
