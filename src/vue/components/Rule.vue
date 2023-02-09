@@ -11,18 +11,22 @@ defineProps({
   replace: {
     type: String,
     required: true
+  },
+  matched: {
+    type: Boolean
   }
 });
 defineEmits(['update-rule']);
 </script>
 
 <template>
-  <div class="rule">
-    <button class="deleteButton" @click="(event) => $emit('deleteRule', id)" >x</button>
+  <div class="rule"
+       v-bind:class="{ ruleMatched: matched }">
+    <button class="deleteButton" @click="(event) => $emit('deleteRule', id)" >&#215;</button>
     <input type="text" class="ruleInput"
         v-bind:value="search" v-bind:title="search"
         @input="(event) => $emit('updateRule:search', id, event.target.value)" />
-    &gt;
+    &#8658;
     <input type="text" class="ruleInput"
         v-bind:value="replace" v-bind:title="replace"
         @input="(event) => $emit('updateRule:replace', id, event.target.value)" />
@@ -31,11 +35,18 @@ defineEmits(['update-rule']);
 
 <style scoped>
 .ruleInput {
-  width: 16rem;
+  width: 275px;
 }
 
 .rule {
-  padding-bottom: 0.3rem;
+  margin: 0.34rem;
+  padding: 0.18rem;
+}
+
+.ruleMatched {
+  outline-style: dotted;
+  outline-color: #04aa6d;
+  outline-width: 1px;
 }
 
 .deleteButton {

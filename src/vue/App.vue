@@ -10,13 +10,32 @@ export default {
   data() {
     return {
       enabled: true,
-      rules: []
+      rules: [],
+      matchedRules: []
     }
   },
   beforeCreate() {
     chrome.runtime.sendMessage({message: 'get-settings'}, async (settings) => {
-      this.enabled = settings.isEnabled;
-      this.rules = settings.rules;
+      chrome.runtime.sendMessage({message: 'get-rules'}, async (sessionRules) => {
+        this.enabled = settings.isEnabled;
+        const normalizedRules = [];
+        for (var i=0; i<settings.rules.length; i++) {
+          const settingRule = settings.rules[i];
+          const sessionRule = sessionRules.find(r => r.condition.regexFilter === settingRule.search);
+          if (sessionRule) {
+            settingRule.sessionRuleId = sessionRule.id;
+          }
+          normalizedRules.push(settingRule);
+        }
+        this.rules = normalizedRules;
+        // No point getting matched rules if this is not enabled
+        if (this.enabled) {
+          chrome.runtime.sendMessage({message: 'get-matched-rules'}, async (matchedRules) => {
+            this.matchedRules = matchedRules;
+            this.indicateMatchedRules();
+          });
+        }
+      });
     });
   },
   watch: {
@@ -38,11 +57,14 @@ export default {
         // Enabled saved
         console.log('enabled saved', response);
       });
-
     },
     updateEnabled(isEnabled) {
-      console.log('updateEnabled()', isEnabled);
       this.enabled = isEnabled;
+      if (!this.enabled) {
+        this.clearMatched();
+      } else {
+        this.indicateMatchedRules();
+      }
       this.saveEnabled();
     },
     updateRuleSearch(ruleId, arg) {
@@ -67,6 +89,18 @@ export default {
         search: 'https://www.example.com/abc',
         replace: 'https://www.example.com/def'
       });
+    },
+    indicateMatchedRules() {
+      for (var i=0; i<this.matchedRules.length; i++) {
+        const matchedRule = this.matchedRules[i];
+        const rule = this.rules.find(rule => rule.sessionRuleId && rule.sessionRuleId === matchedRule.id);
+        rule.matched = true;
+      }
+    },
+    clearMatched() {
+      this.rules.forEach(r => {
+        r.matched = false;
+      });
     }
   }
 }
@@ -84,7 +118,6 @@ export default {
       <Settings v-model:enabled="enabled"
                 @enabled-checked="updateEnabled" />
               
-      <hr />
       <div class="rulesSection"
            v-bind:class="{ rulesDisabled: !enabled }">
         <div class="rulesContainer">
@@ -93,6 +126,7 @@ export default {
                 v-bind:id="rule.id"
                 v-bind:search="rule.search" 
                 v-bind:replace="rule.replace"
+                v-bind:matched="rule.matched"
                 @update-rule:search="updateRuleSearch"
                 @update-rule:replace="updateRuleReplace"
                 @delete-rule="deleteRule" />
@@ -111,23 +145,21 @@ header {
   line-height: 1.5;
 }
 
+.rulesSection {
+  margin-top: 0.24rem;
+}
+
+.addRuleContainer {
+  margin: 0.34rem;
+  padding: 0.18rem;
+}
+
+.rulesContainer {
+  padding-top: 0.34rem;
+}
+
 .rulesDisabled {
   background-color: #eaeaea;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-}
 </style>

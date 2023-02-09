@@ -4,6 +4,7 @@
 
 import {
   prepareRules,
+  sanitizeRules
 } from './switcher-lib.js';
 
 // This is a debug utility function
@@ -148,7 +149,7 @@ chrome.runtime.onMessage.addListener(({message, arg}, sender, sendResponse) => {
   }
   if (message === 'save-rules') {
     getSettings().then(async (settings) => {
-      settings.rules = arg;
+      settings.rules = sanitizeRules(arg);
       chrome.storage.local.set({ 'settings': settings }).then(async () => {
         disableAllRules().then(async () => {
           updateSessionRules(settings.rules).then(async () => {
@@ -182,7 +183,7 @@ const main = async () => {
   await disableAllRules();
   const settings = await getSettings();
   await updateSessionRules(settings.rules);
-  await writeAllRulesToConsole();
+  // await writeAllRulesToConsole();
   updateIcon();
 };
 main();
