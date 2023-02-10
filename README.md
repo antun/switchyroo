@@ -7,7 +7,9 @@ Chrome extension for re-writing URLs.
 
 End-User Installation
 ---------------------
-TODO
+1. In Chrome, go to the Chrome Web Store Page: https://chrome.google.com/webstore/detail/switchyroo/pmldjmimejfcmfagbdpllcdakpimjjnk
+2. Click "Add to Chrome"
+3. Pin the extension so it's easy to access from the menu bar
 
 
 Development
@@ -25,12 +27,7 @@ Testing
 Run `npm run test` to run the unit tests. These will run automatically on watch too.
 
 Deployment
-----------
-TODO
-
-
-Deployment steps:
-
+==========
 1. Do a `npm run publish:patch` (or `publish:minor` or `publish:major`). This will create a new version and bump the package file. It will also create an installable zip file in dist/switchyroo.zip.
 2. Go to https://chrome.google.com/webstore/developer/dashboard and login .
 3. Click edit on the extension.
