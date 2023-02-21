@@ -14,11 +14,11 @@ export const prepareRedirectRule = (search, replace) => {
     action: {
       type: 'redirect',
       redirect: {
-        regexSubstitution: replace
+        url: replace
       }
     },
     condition: {
-      regexFilter: search
+      urlFilter: search
     }
   };
 };
